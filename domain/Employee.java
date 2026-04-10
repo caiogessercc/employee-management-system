@@ -54,10 +54,15 @@ public class Employee extends Person {
   }
 
   private BigDecimal validarSalario(BigDecimal salary) {
-    if (salary == null || salary.compareTo(BigDecimal.ZERO) < 0) {
+    if (salary == null) {
+      throw new IllegalArgumentException("O salário não pode ser nulo");
+    }
+
+    if (salary.compareTo(BigDecimal.ZERO) < 0) {
       throw new IllegalArgumentException("O salário não pode ser negativo");
     }
-    return salary;
+
+    return salary.setScale(2, RoundingMode.HALF_UP);
   }
 
   private String validarRole(String role) {
