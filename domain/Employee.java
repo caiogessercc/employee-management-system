@@ -71,4 +71,12 @@ public class Employee extends Person {
     }
     return role.trim();
   }
+
+  @Override
+  public String toString() {
+    return "Employee{name='" + getName() +
+        "', birthDate=" + getBirthDate() +
+        ", salary=" + salary +
+        ", role='" + role + "'}";
+  }
 }
