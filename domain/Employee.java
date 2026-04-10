@@ -4,6 +4,17 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.math.RoundingMode;
 
+/**
+ * Representa um funcionário do sistema.
+ *
+ * Herda de Person e adiciona:
+ * - Salário
+ * - Função (cargo)
+ *
+ * Regras:
+ * - Salário não pode ser negativo
+ * - Função não pode ser vazia
+ */
 public class Employee extends Person {
 
   private BigDecimal salary;
