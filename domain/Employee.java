@@ -35,6 +35,14 @@ public class Employee extends Person {
   }
 
   public void applySalaryIncrease(BigDecimal percentage) {
+    if (percentage == null) {
+      throw new IllegalArgumentException("O percentual não pode ser nulo");
+    }
+
+    if (percentage.compareTo(BigDecimal.ZERO) < 0) {
+      throw new IllegalArgumentException("O percentual não pode ser negativo");
+    }
+
     BigDecimal increase = salary.multiply(percentage);
     salary = salary.add(increase).setScale(2, RoundingMode.HALF_UP);
   }
