@@ -5,8 +5,8 @@ import java.time.Period;
 
 public class Person {
 
-  private String name;
-  private LocalDate birthDate;
+  private final String name;
+  private final LocalDate birthDate;
 
   public Person(String name, LocalDate birthDate) {
     this.name = validarNome(name);
