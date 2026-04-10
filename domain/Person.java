@@ -3,14 +3,21 @@ package domain;
 import java.time.LocalDate;
 import java.time.Period;
 
+/**
+ * Representa uma pessoa no sistema.
+ *
+ * Regras:
+ * - Nome não pode ser vazio
+ * - Data de nascimento não pode ser futura
+ */
 public class Person {
 
-  private String name;
-  private LocalDate birthDate;
+  private final String name;
+  private final LocalDate birthDate;
 
   public Person(String name, LocalDate birthDate) {
     this.name = validarNome(name);
-    this.birthDate = validarData(birthDate);
+    this.birthDate = validarDataNascimento(birthDate);
   }
 
   public String getName() {
@@ -26,13 +33,13 @@ public class Person {
   }
 
   private String validarNome(String name) {
-    if (name == null || name.isBlank()) {
+    if (name == null || name.trim().isEmpty()) {
       throw new IllegalArgumentException("O nome não pode ser vazio");
     }
-    return name;
+    return name.trim();
   }
 
-  private LocalDate validarData(LocalDate birthDate) {
+  private LocalDate validarDataNascimento(LocalDate birthDate) {
     if (birthDate == null) {
       throw new IllegalArgumentException("A data de nascimento não pode ser nula");
     }
@@ -42,5 +49,10 @@ public class Person {
     }
 
     return birthDate;
+  }
+
+  @Override
+  public String toString() {
+    return "Person{name='" + name + "', birthDate=" + birthDate + "}";
   }
 }
