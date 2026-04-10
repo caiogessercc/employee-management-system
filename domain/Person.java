@@ -26,10 +26,10 @@ public class Person {
   }
 
   private String validarNome(String name) {
-    if (name == null || name.isBlank()) {
+    if (name == null || name.trim().isEmpty()) {
       throw new IllegalArgumentException("O nome não pode ser vazio");
     }
-    return name;
+    return name.trim();
   }
 
   private LocalDate validarData(LocalDate birthDate) {
