@@ -2,6 +2,7 @@ package domain;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.math.RoundingMode;
 
 public class Employee extends Person {
 
@@ -12,6 +13,11 @@ public class Employee extends Person {
     super(name, birthDate);
     this.salary = validarSalario(salary);
     this.role = validarRole(role);
+  }
+
+  public void applySalaryIncrease(BigDecimal percentage) {
+    BigDecimal increase = salary.multiply(percentage);
+    salary = salary.add(increase).setScale(2, RoundingMode.HALF_UP);
   }
 
   private BigDecimal validarSalario(BigDecimal salary) {
