@@ -3,6 +3,13 @@ package domain;
 import java.time.LocalDate;
 import java.time.Period;
 
+/**
+ * Representa uma pessoa no sistema.
+ *
+ * Regras:
+ * - Nome não pode ser vazio
+ * - Data de nascimento não pode ser futura
+ */
 public class Person {
 
   private final String name;
