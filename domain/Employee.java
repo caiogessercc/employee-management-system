@@ -34,6 +34,12 @@ public class Employee extends Person {
     return role;
   }
 
+  /**
+   * Aplica aumento percentual ao salário
+   *
+   * Exemplo:
+   * 10% → passar 0.10
+   */
   public void applySalaryIncrease(BigDecimal percentage) {
     if (percentage == null) {
       throw new IllegalArgumentException("O percentual não pode ser nulo");
