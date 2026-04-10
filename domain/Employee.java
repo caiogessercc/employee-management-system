@@ -66,9 +66,9 @@ public class Employee extends Person {
   }
 
   private String validarRole(String role) {
-    if (role == null || role.isBlank()) {
+    if (role == null || role.trim().isEmpty()) {
       throw new IllegalArgumentException("A função não pode ser vazia");
     }
-    return role;
+    return role.trim();
   }
 }
