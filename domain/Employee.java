@@ -26,6 +26,14 @@ public class Employee extends Person {
     this.role = validarRole(role);
   }
 
+  public BigDecimal getSalary() {
+    return salary;
+  }
+
+  public String getRole() {
+    return role;
+  }
+
   public void applySalaryIncrease(BigDecimal percentage) {
     BigDecimal increase = salary.multiply(percentage);
     salary = salary.add(increase).setScale(2, RoundingMode.HALF_UP);
