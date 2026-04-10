@@ -10,7 +10,7 @@ public class Person {
 
   public Person(String name, LocalDate birthDate) {
     this.name = validarNome(name);
-    this.birthDate = validarData(birthDate);
+    this.birthDate = validarDataNascimento(birthDate);
   }
 
   public String getName() {
@@ -32,7 +32,7 @@ public class Person {
     return name.trim();
   }
 
-  private LocalDate validarData(LocalDate birthDate) {
+  private LocalDate validarDataNascimento(LocalDate birthDate) {
     if (birthDate == null) {
       throw new IllegalArgumentException("A data de nascimento não pode ser nula");
     }
