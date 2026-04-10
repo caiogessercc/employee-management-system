@@ -43,4 +43,9 @@ public class Person {
 
     return birthDate;
   }
+
+  @Override
+  public String toString() {
+    return "Person{name='" + name + "', birthDate=" + birthDate + "}";
+  }
 }
