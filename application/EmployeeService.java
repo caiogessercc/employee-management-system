@@ -3,11 +3,13 @@ package application;
 import domain.Employee;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.time.Month;
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Comparator;
-import java.time.Month;
+import java.util.stream.Collectors;
 
 /**
  * Responsável por operações sobre funcionários.
@@ -58,12 +60,14 @@ public class EmployeeService {
         .map(Employee::getSalary)
         .reduce(BigDecimal.ZERO, BigDecimal::add);
   }
-  
+
   /**
    * Calcula quantos salários mínimos cada funcionário recebe
-   * TODO: Ainda está em desenvolvimento 
-  */
+   */
   public Map<String, BigDecimal> calculateMinimumWages(List<Employee> employees, BigDecimal minimumWage) {
-    return new HashMap<>();
+    return employees.stream()
+        .collect(Collectors.toMap(
+            Employee::getName,
+            e -> e.getSalary().divide(minimumWage, 2, RoundingMode.HALF_UP)));
   }
 }
