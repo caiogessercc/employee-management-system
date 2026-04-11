@@ -43,6 +43,10 @@ public class Main {
     System.out.println("\nORDEM ALFABÉTICA:");
     List<Employee> sorted = service.sortByName(employees);
     printEmployees(sorted);
+
+    System.out.println("\nTOTAL DOS SALÁRIOS:");
+    BigDecimal total = service.calculateTotalSalary(employees);
+    System.out.println(Formatter.formatMoney(total));
   }
 
   private static void printEmployees(List<Employee> employees) {
