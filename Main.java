@@ -47,6 +47,13 @@ public class Main {
     System.out.println("\nTOTAL DOS SALÁRIOS:");
     BigDecimal total = service.calculateTotalSalary(employees);
     System.out.println(Formatter.formatMoney(total));
+
+    System.out.println("\nSALÁRIOS MÍNIMOS:");
+    BigDecimal minimumWage = new BigDecimal("1212.00");
+
+    Map<String, BigDecimal> minimumWages = service.calculateMinimumWages(employees, minimumWage);
+
+    minimumWages.forEach((name, value) -> System.out.println(name + ": " + value + " salários mínimos"));
   }
 
   private static void printEmployees(List<Employee> employees) {
