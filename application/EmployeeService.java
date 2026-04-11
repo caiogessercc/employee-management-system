@@ -23,12 +23,9 @@ public class EmployeeService {
   }
 
   public BigDecimal calculateTotalSalary(List<Employee> employees) {
-    BigDecimal total = BigDecimal.ZERO;
-  
-    for (Employee e : employees) {
-      total = total.add(e.getSalary());
-    }
-  
-    return total;
+    return employees.stream()
+        .map(Employee::getSalary)
+        .reduce(BigDecimal.ZERO, BigDecimal::add);
   }
+
 }
