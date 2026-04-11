@@ -4,6 +4,7 @@ import infrastructure.bootstrap.DataProvider;
 import infrastructure.formatting.Formatter;
 
 import java.util.List;
+import java.math.BigDecimal;
 
 public class Main {
 
@@ -16,6 +17,8 @@ public class Main {
 
     System.out.println("LISTA DE FUNCIONÁRIOS:");
     printEmployees(employees);
+
+    service.applySalaryIncrease(employees, new BigDecimal("0.10"));
   }
 
   private static void printEmployees(List<Employee> employees) {
