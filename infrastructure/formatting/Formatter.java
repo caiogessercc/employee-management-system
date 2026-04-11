@@ -17,6 +17,9 @@ public class Formatter {
     MONEY_FORMATTER.setMaximumFractionDigits(2);
   }
 
+  /**
+   * Formata uma data no padrão brasileiro (dd/MM/yyyy)
+   */
   public static String formatDate(LocalDate date) {
     if (date == null) {
       throw new IllegalArgumentException("A data não pode ser nula");
@@ -24,6 +27,10 @@ public class Formatter {
     return date.format(DATE_FORMATTER);
   }
 
+  /**
+   * Formata um valor monetário no padrão brasileiro
+   * Exemplo: 1234.56 -> 1.234,56
+   */
   public static String formatMoney(BigDecimal value) {
     if (value == null) {
       throw new IllegalArgumentException("O valor não pode ser nulo");
