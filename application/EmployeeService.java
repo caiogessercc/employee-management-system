@@ -21,4 +21,14 @@ public class EmployeeService {
         .sorted(Comparator.comparing(Employee::getName))
         .toList();
   }
+
+  public BigDecimal calculateTotalSalary(List<Employee> employees) {
+    BigDecimal total = BigDecimal.ZERO;
+  
+    for (Employee e : employees) {
+      total = total.add(e.getSalary());
+    }
+  
+    return total;
+  }
 }
