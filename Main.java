@@ -14,6 +14,8 @@ public class Main {
 
     service.removeByName(employees, "João");
 
+    System.out.println("LISTA DE FUNCIONÁRIOS:");
+    printEmployees(employees);
   }
 
   private static void printEmployees(List<Employee> employees) {
