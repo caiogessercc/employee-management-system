@@ -4,6 +4,8 @@ import domain.Employee;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 import java.util.Comparator;
 import java.time.Month;
 
@@ -56,6 +58,12 @@ public class EmployeeService {
         .map(Employee::getSalary)
         .reduce(BigDecimal.ZERO, BigDecimal::add);
   }
-
-  // calculateMinimumWages
+  
+  /**
+   * Calcula quantos salários mínimos cada funcionário recebe
+   * TODO: Ainda está em desenvolvimento 
+  */
+  public Map<String, BigDecimal> calculateMinimumWages(List<Employee> employees, BigDecimal minimumWage) {
+    return new HashMap<>();
+  }
 }
