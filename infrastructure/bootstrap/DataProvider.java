@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.time.LocalDate;
 import java.math.BigDecimal;
 
-public class DataProvider {
+public final class DataProvider {
   private DataProvider() {}
 
   public static List<Employee> createEmployees() {
