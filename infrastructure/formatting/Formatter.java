@@ -4,6 +4,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.LocalDate;
 import java.text.NumberFormat;
 import java.util.Locale;
+import java.math.BigDecimal;
 
 public class Formatter {
   private Formatter() {}
@@ -21,5 +22,12 @@ public class Formatter {
       throw new IllegalArgumentException("A data não pode ser nula");
     }
     return date.format(DATE_FORMATTER);
+  }
+
+  public static String formatMoney(BigDecimal value) {
+    if (value == null) {
+      throw new IllegalArgumentException("O valor não pode ser nulo");
+    }
+    return MONEY_FORMATTER.format(value);
   }
 }
