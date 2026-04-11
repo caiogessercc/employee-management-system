@@ -16,6 +16,12 @@ public class EmployeeService {
     employees.forEach(e -> e.applySalaryIncrease(percentage));
   }
 
+  public Employee findOldest(List<Employee> employees) {
+    return employees.stream()
+        .min(Comparator.comparing(Employee::getBirthDate))
+        .orElseThrow(() -> new IllegalStateException("Lista de funcionários está vazia"));
+  }
+
   public List<Employee> sortByName(List<Employee> employees) {
     return employees.stream()
         .sorted(Comparator.comparing(Employee::getName))
