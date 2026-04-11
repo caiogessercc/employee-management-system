@@ -6,7 +6,7 @@ import java.text.NumberFormat;
 import java.util.Locale;
 import java.math.BigDecimal;
 
-public class Formatter {
+public final class Formatter {
   private Formatter() {}
 
   private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
