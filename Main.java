@@ -6,6 +6,7 @@ import infrastructure.formatting.Formatter;
 import java.util.List;
 import java.math.BigDecimal;
 import java.util.Map;
+import java.time.Month;
 
 public class Main {
 
@@ -27,6 +28,14 @@ public class Main {
       System.out.println("\nFunção: " + role);
       printEmployees(list);
     });
+
+    System.out.println("\nANIVERSARIANTES (OUTUBRO E DEZEMBRO)");
+    List<Employee> birthdays = service.filterByBirthMonth(
+            employees,
+            Month.OCTOBER,
+            Month.DECEMBER
+    );
+    printEmployees(birthdays);
   }
 
   private static void printEmployees(List<Employee> employees) {
