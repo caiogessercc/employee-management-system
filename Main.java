@@ -22,8 +22,8 @@ public class Main {
 
     service.applySalaryIncrease(employees, new BigDecimal("0.10"));
 
-    Map<String, List<Employee>> grouped = service.groupByRole(employees);
     System.out.println("\nFUNCIONÁRIOS AGRUPADOS POR FUNÇÃO:");
+    Map<String, List<Employee>> grouped = service.groupByRole(employees);
     grouped.forEach((role, list) -> {
       System.out.println("\nFunção: " + role);
       printEmployees(list);
@@ -36,9 +36,13 @@ public class Main {
         Month.DECEMBER);
     printEmployees(birthdays);
 
-    Employee oldest = service.findOldest(employees);
     System.out.println("\nFUNCIONÁRIO MAIS VELHO:");
+    Employee oldest = service.findOldest(employees);
     System.out.println(oldest.getName() + " - " + oldest.getAge() + " anos");
+
+    System.out.println("\nORDEM ALFABÉTICA:");
+    List<Employee> sorted = service.sortByName(employees);
+    printEmployees(sorted);
   }
 
   private static void printEmployees(List<Employee> employees) {
