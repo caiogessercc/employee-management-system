@@ -7,6 +7,12 @@ import java.util.List;
 import java.util.Comparator;
 import java.time.Month;
 
+/**
+ * Responsável por operações sobre funcionários.
+ *
+ * Esta classe não contém regras de negócio profundas,
+ * apenas orquestra chamadas ao domínio.
+ */
 public class EmployeeService {
 
   public void removeByName(List<Employee> employees, String name) {
@@ -16,6 +22,8 @@ public class EmployeeService {
   public void applySalaryIncrease(List<Employee> employees, BigDecimal percentage) {
     employees.forEach(e -> e.applySalaryIncrease(percentage));
   }
+
+  // groupByRole
 
   public List<Employee> filterByBirthMonth(List<Employee> employees, Month... months) {
     return employees.stream()
@@ -49,4 +57,5 @@ public class EmployeeService {
         .reduce(BigDecimal.ZERO, BigDecimal::add);
   }
 
+  // calculateMinimumWages
 }
