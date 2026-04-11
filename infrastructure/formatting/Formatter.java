@@ -9,4 +9,9 @@ public class Formatter {
 
   private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
   private static final NumberFormat MONEY_FORMATTER = NumberFormat.getNumberInstance(Locale.forLanguageTag("pt-BR"));
+
+  static {
+    MONEY_FORMATTER.setMinimumFractionDigits(2);
+    MONEY_FORMATTER.setMaximumFractionDigits(2);
+  }
 }
