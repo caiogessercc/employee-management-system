@@ -5,6 +5,7 @@ import domain.Employee;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Comparator;
+import java.time.Month;
 
 public class EmployeeService {
 
@@ -14,6 +15,20 @@ public class EmployeeService {
 
   public void applySalaryIncrease(List<Employee> employees, BigDecimal percentage) {
     employees.forEach(e -> e.applySalaryIncrease(percentage));
+  }
+
+  public List<Employee> filterByBirthMonth(List<Employee> employees, Month... months) {
+    return employees.stream()
+        .filter(e -> {
+          int mes = e.getBirthDate().getMonthValue();
+          for (Month m : months) {
+            if (m.getValue() == mes) {
+              return true;
+            }
+          }
+          return false;
+        })
+        .toList();
   }
 
   public Employee findOldest(List<Employee> employees) {
