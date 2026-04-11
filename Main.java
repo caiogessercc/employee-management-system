@@ -5,6 +5,7 @@ import infrastructure.formatting.Formatter;
 
 import java.util.List;
 import java.math.BigDecimal;
+import java.util.Map;
 
 public class Main {
 
@@ -19,6 +20,13 @@ public class Main {
     printEmployees(employees);
 
     service.applySalaryIncrease(employees, new BigDecimal("0.10"));
+
+    Map<String, List<Employee>> grouped = service.groupByRole(employees);
+    System.out.println("\nFUNCIONÁRIOS AGRUPADOS POR FUNÇÃO:");
+    grouped.forEach((role, list) -> {
+      System.out.println("\nFunção: " + role);
+      printEmployees(list);
+    });
   }
 
   private static void printEmployees(List<Employee> employees) {
