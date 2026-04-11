@@ -4,6 +4,7 @@ import domain.Employee;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Comparator;
 
 public class EmployeeService {
 
@@ -13,5 +14,11 @@ public class EmployeeService {
 
   public void applySalaryIncrease(List<Employee> employees, BigDecimal percentage) {
     employees.forEach(e -> e.applySalaryIncrease(percentage));
+  }
+
+  public List<Employee> sortByName(List<Employee> employees) {
+    return employees.stream()
+        .sorted(Comparator.comparing(Employee::getName))
+        .toList();
   }
 }
