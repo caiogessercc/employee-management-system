@@ -29,13 +29,16 @@ public class Main {
       printEmployees(list);
     });
 
-    System.out.println("\nANIVERSARIANTES (OUTUBRO E DEZEMBRO)");
+    System.out.println("\nANIVERSARIANTES (OUTUBRO E DEZEMBRO):");
     List<Employee> birthdays = service.filterByBirthMonth(
-            employees,
-            Month.OCTOBER,
-            Month.DECEMBER
-    );
+        employees,
+        Month.OCTOBER,
+        Month.DECEMBER);
     printEmployees(birthdays);
+
+    Employee oldest = service.findOldest(employees);
+    System.out.println("\nFUNCIONÁRIO MAIS VELHO:");
+    System.out.println(oldest.getName() + " - " + oldest.getAge() + " anos");
   }
 
   private static void printEmployees(List<Employee> employees) {
