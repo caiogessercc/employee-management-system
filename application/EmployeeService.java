@@ -26,7 +26,10 @@ public class EmployeeService {
     employees.forEach(e -> e.applySalaryIncrease(percentage));
   }
 
-  // groupByRole
+  public Map<String, List<Employee>> groupByRole(List<Employee> employees) {
+    return employees.stream()
+        .collect(Collectors.groupingBy(Employee::getRole));
+  }
 
   public List<Employee> filterByBirthMonth(List<Employee> employees, Month... months) {
     return employees.stream()
